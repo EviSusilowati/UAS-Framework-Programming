@@ -5,20 +5,20 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Tambah Data Kendaraan') }}</div><br>
+                <div class="card-header">{{ __('Tambah Data Surat') }}</div><br>
 <div class="container">
 <form action="/tambah" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
-        <label for="no">NO PLAT : </label>
+        <label for="no">No Surat : </label>
         <input class="form-control" type="text" name="plat" id="plat" required>
     </div>
     <div class="form-group">
-        <label for="merk">MERK : </label>
+        <label for="merk">Tanggal : </label>
         <input class="form-control" type="text" name="merk" id="merk" required>
     </div>
     <div class="form-group">
-        <label for="tipe">TIPE : </label>
+        <label for="tipe">Pengirim : </label>
         <input class="form-control" type="text" name="tipe" id="tipe" required>
     </div>
     <div class="form-group">

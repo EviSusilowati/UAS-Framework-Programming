@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Kendaraan;
+use App\hape;
 use Codedge\Fpdf\Fpdf\Fpdf;
 // use PDF;
 
-class KendaraanController extends Controller
+class hapeController extends Controller
 {
     public function home()
     {
-        $hasil = Kendaraan::all();
+        $hasil = hape::all();
         return view('home', ['data' => $hasil]);
     }
     public function tambah(Request $req)
@@ -19,7 +19,7 @@ class KendaraanController extends Controller
         $image = $req->file('file');
         $imageName = time() . '.' . $image->extension();
         $image->move(public_path('images'), $imageName);
-        $data = new Kendaraan();
+        $data = new hape();
         $data->plat = $req->plat;
         $data->merk = $req->merk;
         $data->tipe = $req->tipe;
@@ -30,7 +30,7 @@ class KendaraanController extends Controller
 
     public function hapus($req)
     {
-        $data = Kendaraan::find($req);
+        $data = hape::find($req);
         unlink(public_path('images') . '/' . $data->profileimage);
         $data->delete();
 
@@ -39,8 +39,8 @@ class KendaraanController extends Controller
 
     public function formUbah($req)
     {
-        $hasil = Kendaraan::find($req);
-        return view('form-ubah-kendaraan', ['data' => $hasil]);
+        $hasil = hape::find($req);
+        return view('form-ubah-hape', ['data' => $hasil]);
     }
     public function ubah(Request $req)
     {
@@ -48,13 +48,15 @@ class KendaraanController extends Controller
         $imageName = time() . '.' . $image->extension();
         $image->move(public_path('images'), $imageName);
 
-        $data =  Kendaraan::find($req->id);
+        $data =  hape::find($req->id);
         $data->plat = $req->plat;
         $data->merk = $req->merk;
         $data->tipe = $req->tipe;
         $data->profileimage = $imageName;
         $data->save();
         return $this->home();
+
+        
     }
 
 
@@ -63,17 +65,17 @@ class KendaraanController extends Controller
 
         $pdf->AddPage();
         $pdf->SetFont('Arial', 'B', 18);
-        $pdf->MultiCell(0, 10, 'Report Data Kendaraan', 0, 'C');
+        $pdf->MultiCell(0, 10, 'Report Data surat', 0, 'C');
         $pdf->Ln();
         // header
         $pdf->SetFont('Arial', '', 12);
         $pdf->Cell(20, 10, 'No', 1, 0, 'C');
-        $pdf->Cell(50, 10, 'No. Plat', 1, 0, 'C');
-        $pdf->Cell(50, 10, 'Merk', 1, 0, 'C');
-        $pdf->Cell(50, 10, 'Tipe', 1, 0, 'C');
+        $pdf->Cell(50, 10, 'No. surat', 1, 0, 'C');
+        $pdf->Cell(50, 10, 'tanggal', 1, 0, 'C');
+        $pdf->Cell(50, 10, 'pengirim', 1, 0, 'C');
         $pdf->Ln();
         // data
-        $data = Kendaraan::all();
+        $data = hape::all();
 
         $i = 1;
         foreach ($data as $d) {
@@ -89,7 +91,7 @@ class KendaraanController extends Controller
     }
 
     // public function downloadPDF(Request $req){
-    //     $hasil = Kendaraan::all();
+    //     $hasil = hape::all();
     //     $pdf = PDF::loadView('home', ['data' => $hasil]);
     //     return $pdf->download('report_laporan.pdf');
     // }

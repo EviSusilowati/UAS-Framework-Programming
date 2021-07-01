@@ -1,6 +1,6 @@
-<h3 align="center">Selamat datang di Sistem Informasi Rekam Data Kendaraan! 👋</h3>
+<h3 align="center">Selamat datang di Sistem Informasi Rekam Data hape! 👋</h3>
 
-**Sistem Informasi Rekam Data Kendaraan dibuat sebagai Ujian Akhir Semester Mata Kuliah Framework Programming.**
+**Sistem Informasi Rekam Data hape dibuat sebagai Ujian Akhir Semester Mata Kuliah Framework Programming.**
 
 ## Fitur apa saja yang tersedia di Sistem Informasi?
 
@@ -12,7 +12,7 @@
 
 **Release date : 28 Juni 2021**
 
-> Sistem Informasi Rekam Data Kendaraan merupakan project open source yang dibuat oleh Umar Ulkhak. Kalian dapat download/fork/clone. Cukup beri stars di project ini agar memberiku semangat. Terima kasih!
+> Sistem Informasi Rekam Data hape merupakan project open source yang dibuat oleh Eka. Kalian dapat download/fork/clone. Cukup beri stars di project ini agar memberiku semangat. Terima kasih!
 
 ---
 
@@ -56,5 +56,5 @@ Jangan ragu untuk memeriksa halaman masalah jika Anda ingin berkontribusi. **Ber
 
 ## License
 
--   Copyright © 2021 Umar Ulkhak.
--   **Sistem Informasi Rekam Data Kendaraan is open-sourced software licensed.**
+-   Copyright © 2021 Eka.
+-   **Sistem Informasi Rekam Data hape is open-sourced software licensed.**

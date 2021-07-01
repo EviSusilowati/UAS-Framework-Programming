@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKendaraan extends Migration
+class Createhape extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateKendaraan extends Migration
      */
     public function up()
     {
-        Schema::create('kendaraan', function (Blueprint $table) {
+        Schema::create('hape', function (Blueprint $table) {
             $table->id('id');
             $table->string('plat');
             $table->string('merk');
@@ -30,6 +30,6 @@ class CreateKendaraan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kendaraan');
+        Schema::dropIfExists('hape');
     }
 }
