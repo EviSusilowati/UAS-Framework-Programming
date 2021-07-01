@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\hape;
+use App\Hape;
 use Codedge\Fpdf\Fpdf\Fpdf;
 // use PDF;
 
@@ -11,7 +11,7 @@ class hapeController extends Controller
 {
     public function home()
     {
-        $hasil = hape::all();
+        $hasil = Hape::all();
         return view('home', ['data' => $hasil]);
     }
     public function tambah(Request $req)
@@ -19,7 +19,7 @@ class hapeController extends Controller
         $image = $req->file('file');
         $imageName = time() . '.' . $image->extension();
         $image->move(public_path('images'), $imageName);
-        $data = new hape();
+        $data = new Hape();
         $data->plat = $req->plat;
         $data->merk = $req->merk;
         $data->tipe = $req->tipe;
@@ -30,7 +30,7 @@ class hapeController extends Controller
 
     public function hapus($req)
     {
-        $data = hape::find($req);
+        $data = Hape::find($req);
         unlink(public_path('images') . '/' . $data->profileimage);
         $data->delete();
 
@@ -39,7 +39,7 @@ class hapeController extends Controller
 
     public function formUbah($req)
     {
-        $hasil = hape::find($req);
+        $hasil = Hape::find($req);
         return view('form-ubah-hape', ['data' => $hasil]);
     }
     public function ubah(Request $req)
@@ -48,7 +48,7 @@ class hapeController extends Controller
         $imageName = time() . '.' . $image->extension();
         $image->move(public_path('images'), $imageName);
 
-        $data =  hape::find($req->id);
+        $data =  Hape::find($req->id);
         $data->plat = $req->plat;
         $data->merk = $req->merk;
         $data->tipe = $req->tipe;
@@ -75,7 +75,7 @@ class hapeController extends Controller
         $pdf->Cell(50, 10, 'pengirim', 1, 0, 'C');
         $pdf->Ln();
         // data
-        $data = hape::all();
+        $data = Hape::all();
 
         $i = 1;
         foreach ($data as $d) {
